@@ -2,6 +2,7 @@ public class UserImpl implements User {
 
 	private String username;
 	private int id;
+	private String assocLibrary;
 
 	public UserImpl(String username) {
 		this.username = username;		
@@ -19,6 +20,17 @@ public class UserImpl implements User {
 		return id;	
 	}
 	
+	public void register(Library library) {
+		id = library.getAssignedID();
+		setID(id);
+		assocLibrary = library.getLibName();		
+	}
+	
+	public String getLibrary() {
+		return assocLibrary;
+	}
+		
+	
 	
 		
 
@@ -31,3 +43,4 @@ public class UserImpl implements User {
 * 3. Class
 * 4. Run test using implementation of class through interface
 */
+
