@@ -29,7 +29,34 @@ import static org.junit.Assert.*;
 			int outputID = u.getID();
 			int expectedID = inputID;
 			assertEquals(outputID, expectedID);
-		}				
+		}	
+
+		@Test
+		public void testsRegisterLibraryID() {
+			MockLibrary mock = new MockLibrary();
+			User u = new UserImpl("Klaus");
+			u.register(mock);
+			int inputID = mock.getAssignedID();
+			int outputID = u.getID();
+			int expectedID = inputID;
+			assertEquals(outputID, expectedID);
+		}
+		
+		@Test
+		public void testsRegisterLibraryName() {
+			MockLibrary mock = new MockLibrary();
+			User u = new UserImpl("Klaus");
+			u.register(mock);
+			String inputLibName = mock.getLibName();
+			String outputLibName = u.getLibrary();
+			String expectedLibName = inputLibName();
+			assertEquals(outputLibName, expectedLibName);
+		}
+			
+			
+			
+			
+			
 		
 			
 	}
