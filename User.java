@@ -25,6 +25,20 @@ public interface User {
 	*/
 	int getID();
 	
+	/**
+	* Allows users to register with a library.
+	* This is the way to obtain a User-ID -- the library assigns ID to a user.
+	* Obtains the ID from the library, and sets it for the user by calling setID().
+	* @param Library selects the library that the user will be associated with.
+	*/
+	void register(Library library);
+	
+	/**
+	* Gets the library associated with a user.
+	* @return Library is returned as a String.
+	*/
+	String getLibrary();
+	
 }
 
 
@@ -45,11 +59,16 @@ public interface User {
 
 
 
-
 /**
-Create a class for the users of the library. Users have a name and a library-ID (an int), both of which must be
-unique in a library. The name is set at construction time, but the library-ID is not. The class must implement
-methods to get the name of the person and their ID, and to set the latter.
+Extend the class you have just created to allow users to register with a library. You will need two methods
+register(Library) and getLibrary(). The former method is the way to obtain the user-ID.
+Important. As you do not have a Library class yet, you will need a fake Library object to test your method
+register(Library). This is called a mock object, and it is a common practice when writing testing code because
+it allows the programmer to test one class at a time —instead of testing several classes at the same time, which is
+more complex and thus error-prone—. The mock library object does not need to do anything apart from providing
+a name (so that your class can return it when you call getLibrary() and an ID when you call getID(). Because
+it is a mock object and not the real one, it can return trivial values (i.e. the name can be always “Library name”
+and the ID can be always 13).
 */
 
 /**
